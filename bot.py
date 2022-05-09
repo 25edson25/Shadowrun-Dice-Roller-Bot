@@ -8,7 +8,7 @@ import os
 import telegram
 from telegram.ext import Updater, CommandHandler
 
-PORT = int(os.environ.get('PORT', 5000))
+PORT = int(os.environ.get('PORT', '8443'))
 TOKEN = os.environ["TOKEN"]
 
 logging.basicConfig(
@@ -77,8 +77,8 @@ def main() -> None:
 	
 	updater.start_webhook(listen="0.0.0.0",
 						  port=int(os.environ.get('PORT', 5000)),
-						  url_path=TOKEN)
-	updater.bot.setWebhook('https://shadowrun-dice-roller-bot.herokuapp.com/' + TOKEN) 
+						  url_path=TOKEN,
+						  webhook_url='https://shadowrun-dice-roller-bot.herokuapp.com/' + TOKEN)
 
 	updater.idle()
 	
