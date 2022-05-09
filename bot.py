@@ -78,7 +78,7 @@ def main() -> None:
 	updater.start_webhook(listen="0.0.0.0",
 						  port=int(os.environ.get('PORT', 5000)),
 						  url_path=TOKEN)
-	updater.bot.setWebhook('https://your-app-name.herokuapp.com/' + TOKEN) 
+	updater.bot.setWebhook('https://shadowrun-dice-roller-bot.herokuapp.com/' + TOKEN) 
 
 	updater.idle()
 	
