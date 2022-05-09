@@ -51,16 +51,16 @@ def roll(update, context):
 			dices += formatting + ", "
 		
 		dices = dices[:-2]
-		hasFailure = ones_count >= dice_qty / 2
+		has_failure = ones_count >= dice_qty / 2
 		
-		if hasFailure and sucess_count == 0:
+		if has_failure and sucess_count == 0:
 			failure_message = "FALHA CRÍTICA"
-		elif hasFailure:
+		elif has_failure:
 			failure_message = "FALHA"
 		
 		update.message.reply_markdown_v2((f'*{name}*\n' if (name != 0) else "") + \
 										  f'{dices}\n\nSucessos: {sucess_count}' + \
-										 (f'\n\n{failure_message}' if hasFailure else ''))
+										 (f'\n\n{failure_message}' if has_failure else ''))
 		
 	except:
 		update.message.reply_text("Digite sem as chaves: /roll {Quantidade de dados} {Nome do lançamento (Opcional)}")
